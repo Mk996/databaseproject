@@ -1,8 +1,7 @@
 package com.groupone.databaseproject.entity;
 
-
-
 import javax.persistence.*;
+
 
 @Entity
 @Table(name = Subject.TABLE_NAME)

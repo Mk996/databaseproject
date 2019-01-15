@@ -1,5 +1,6 @@
 package com.groupone.databaseproject.dto;
 
+
 public class SubjectDTO {
     private String subjectId;
     private String semesterId;
