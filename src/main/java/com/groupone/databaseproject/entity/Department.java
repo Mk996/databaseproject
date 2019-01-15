@@ -3,10 +3,7 @@ package com.groupone.databaseproject.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name=Department.TABLE_NAME)
@@ -16,6 +13,12 @@ public class Department {
     @Id
     private String departmentId;
     private String departmentName;
+
+    @OneToMany(
+            mappedBy = "department",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
 
     public String getDepartmentId() {
         return departmentId;
