@@ -1,6 +1,8 @@
 package com.groupone.databaseproject.entity;
 
 import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  * Created by maharshigor on 16/01/19
@@ -9,31 +11,17 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class GradesId {
 
-    private String studentId;
-    private String subjectId;
-    private String semesterId;
+    @ManyToOne
+    @JoinColumn(name = "STUDENT_ID" , table = "STUDENT")
+    private Student student;
 
-    public String getStudentId() {
-        return studentId;
-    }
+    @ManyToOne
+    @JoinColumn(name = "SUBJECT_ID", table = "SUBJECT")
+    private Subject subject;
 
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
-    }
+    @ManyToOne
+    @JoinColumn(name = "SEMESTER_ID" , table = "SEMESTER")
+    private Semester semester;
 
-    public String getSubjectId() {
-        return subjectId;
-    }
 
-    public void setSubjectId(String subjectId) {
-        this.subjectId = subjectId;
-    }
-
-    public String getSemesterId() {
-        return semesterId;
-    }
-
-    public void setSemesterId(String semesterId) {
-        this.semesterId = semesterId;
-    }
 }
