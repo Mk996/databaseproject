@@ -16,11 +16,11 @@ public class Professor {
 
     @ManyToOne
     @JoinColumn(name = "DEPARTMENT_ID")
-    private String primaryDepartmentId;
+    private Department primaryDepartment;
 
     @ManyToOne
     @JoinColumn(name = "DEPARTMENT_ID")
-    private String secondaryDepartmentId;
+    private Department secondaryDepartment;
 
     private Set<Subject> subjects = new HashSet<>(0);
 
@@ -51,19 +51,19 @@ public class Professor {
         this.professorName = professorName;
     }
 
-    public String getPrimaryDepartmentId() {
-        return primaryDepartmentId;
+    public Department getPrimaryDepartment() {
+        return primaryDepartment;
     }
 
-    public void setPrimaryDepartmentId(String primaryDepartmentId) {
-        this.primaryDepartmentId = primaryDepartmentId;
+    public void setPrimaryDepartment(Department primaryDepartment) {
+        this.primaryDepartment = primaryDepartment;
     }
 
-    public String getSecondaryDepartmentId() {
-        return secondaryDepartmentId;
+    public Department getSecondaryDepartment() {
+        return secondaryDepartment;
     }
 
-    public void setSecondaryDepartmentId(String secondaryDepartmentId) {
-        this.secondaryDepartmentId = secondaryDepartmentId;
+    public void setSecondaryDepartment(Department secondaryDepartment) {
+        this.secondaryDepartment = secondaryDepartment;
     }
 }
