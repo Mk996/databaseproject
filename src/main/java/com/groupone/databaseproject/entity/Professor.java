@@ -1,8 +1,8 @@
 package com.groupone.databaseproject.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = Professor.TABLE_NAME)
@@ -13,8 +13,27 @@ public class Professor {
     @Id
     private String professorId;
     private String professorName;
+
+    @ManyToOne
+    @JoinColumn(name = "DEPARTMENT_ID")
     private String primaryDepartmentId;
+
+    @ManyToOne
+    @JoinColumn(name = "DEPARTMENT_ID")
     private String secondaryDepartmentId;
+
+    private Set<Subject> subjects = new HashSet<>(0);
+
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "SUBJECT_TUTOR", joinColumns = {@JoinColumn(name = "PROFESSOR_ID")}, inverseJoinColumns = {@JoinColumn(name = "SUBJECT_ID")})
+    public Set<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(Set<Subject> subjects) {
+        this.subjects = subjects;
+    }
 
     public String getProfessorId() {
         return professorId;
