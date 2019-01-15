@@ -1,5 +1,6 @@
-package com.groupone.databaseproject.services;
+package com.groupone.databaseproject.services.impl;
 
+import com.groupone.databaseproject.services.ProfessorServices;
 import org.springframework.stereotype.Service;
 
 /**
