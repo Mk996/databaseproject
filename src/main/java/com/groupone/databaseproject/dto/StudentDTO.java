@@ -1,21 +1,10 @@
-package com.groupone.databaseproject.entity;
+package com.groupone.databaseproject.dto;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = Student.TABLE_NAME)
-public class Student {
-    public static final String TABLE_NAME = "STUDENT";
-
-    @Id
+public class StudentDTO {
     private String studentId;
     private String studentName;
     private String departmentId;
     private String currentSemesterId;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @Column(name = "department_id")
-    private Department departmentStud;
 
     public String getStudentId() {
         return studentId;

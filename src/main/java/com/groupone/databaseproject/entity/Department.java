@@ -20,6 +20,12 @@ public class Department {
             orphanRemoval = true
     )
 
+    @OneToOne(
+            mappedBy = "departmentStud",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+
     public String getDepartmentId() {
         return departmentId;
     }
