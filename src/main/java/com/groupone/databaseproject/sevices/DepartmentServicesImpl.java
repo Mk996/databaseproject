@@ -1,4 +1,7 @@
 package com.groupone.databaseproject.sevices;
 
-public class DepartmentServicesImpl {
+import org.springframework.stereotype.Service;
+
+@Service
+public class DepartmentServicesImpl implements DeparmentServices{
 }

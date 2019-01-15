@@ -11,6 +11,11 @@ import javax.persistence.Table;
 @Table(name=Department.TABLE_NAME)
 public class Department {
     public static final String TABLE_NAME="DEPARTMENT";
+
+    @Id
+    private String departmentId;
+    private String departmentName;
+
     public String getDepartmentId() {
         return departmentId;
     }
@@ -26,10 +31,5 @@ public class Department {
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
     }
-    @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name="uuid",strategy = "uuid2")
-    private String departmentId;
-    private String departmentName;
 
 }
