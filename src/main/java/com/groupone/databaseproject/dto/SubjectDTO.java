@@ -1,25 +1,10 @@
-package com.groupone.databaseproject.entity;
+package com.groupone.databaseproject.dto;
 
-
-
-import javax.persistence.*;
-
-@Entity
-@Table(name = Subject.TABLE_NAME)
-public class Subject {
-    public static final String TABLE_NAME = "SUBJECT";
-
-    @Id
+public class SubjectDTO {
     private String subjectId;
     private String semesterId;
     private String departmentId;
     private String subjectName;
-
-    /*@ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "semester_id")
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "department_id")*/
 
     public String getSubjectId() {
         return subjectId;
@@ -27,6 +12,22 @@ public class Subject {
 
     public void setSubjectId(String subjectId) {
         this.subjectId = subjectId;
+    }
+
+    public String getSemesterId() {
+        return semesterId;
+    }
+
+    public void setSemesterId(String semesterId) {
+        this.semesterId = semesterId;
+    }
+
+    public String getDepartmentId() {
+        return departmentId;
+    }
+
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
     }
 
     public String getSubjectName() {
