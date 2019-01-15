@@ -1,6 +1,6 @@
 package com.groupone.databaseproject.entity;
 
-<<<<<<< HEAD
+
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
@@ -33,8 +33,5 @@ public class Department {
         this.departmentName = departmentName;
     }
 
-=======
 
-public class Department {
->>>>>>> b9ef737d577af4ccb9449c65a396738572e540df
 }
