@@ -3,24 +3,25 @@ package com.groupone.databaseproject.entity;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import java.io.Serializable;
 
 /**
  * Created by maharshigor on 16/01/19
  **/
 
 @Embeddable
-public class GradesId {
+public class GradesId implements Serializable {
 
     @ManyToOne
-    @JoinColumn(name = "STUDENT_ID" , table = "STUDENT")
+    @JoinColumn(name = "STUDENT_ID")
     private Student student;
 
     @ManyToOne
-    @JoinColumn(name = "SUBJECT_ID", table = "SUBJECT")
+    @JoinColumn(name = "SUBJECT_ID")
     private Subject subject;
 
     @ManyToOne
-    @JoinColumn(name = "SEMESTER_ID" , table = "SEMESTER")
+    @JoinColumn(name = "SEMESTER_ID")
     private Semester semester;
 
 }
