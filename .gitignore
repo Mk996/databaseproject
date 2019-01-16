@@ -24,5 +24,12 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+<<<<<<< HEAD
+=======
 
+<<<<<<< HEAD
+>>>>>>> 38a9ecdfb2071a4330e49e2dbba140486ffe533a
 /src/main/resources/application.properties
+=======
+/Users/suchhanda/IdeaProjects/databaseproject/src/main/resources/application.properties
+>>>>>>> 4706e0a22c7b896a657afa554744dcde94fa8a54

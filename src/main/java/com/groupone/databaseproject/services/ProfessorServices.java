@@ -9,8 +9,10 @@ import com.groupone.databaseproject.entity.Professor;
 
 public interface ProfessorServices {
     Professor add(ProfessorDTO professorDTO);
-    Professor select(String professorId);
-    Professor update(ProfessorDTO professorDTO);
-    void delete(String professorId);
 
+    Professor select(String professorId);
+
+    Professor update(ProfessorDTO professorDTO);
+
+    void delete(String professorId);
 }

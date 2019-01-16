@@ -4,6 +4,10 @@ public class DepartmentDTO {
     private String departmentId;
     private String departmentName;
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 4706e0a22c7b896a657afa554744dcde94fa8a54
     public String getDepartmentId() {
         return departmentId;
     }

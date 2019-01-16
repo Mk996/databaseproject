@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name=Department.TABLE_NAME)
-public class Department {
+public class  Department {
 
     public static final String TABLE_NAME="DEPARTMENT";
 
