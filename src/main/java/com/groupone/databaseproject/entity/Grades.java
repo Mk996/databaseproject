@@ -1,8 +1,6 @@
 package com.groupone.databaseproject.entity;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = Grades.TABLE_NAME)
@@ -11,6 +9,9 @@ public class Grades {
 
     @EmbeddedId
     private GradesId gradesId;
+
+
+    private String grade;
 
     public GradesId getGradesId() {
         return gradesId;
@@ -28,5 +29,5 @@ public class Grades {
         this.grade = grade;
     }
 
-    private String grade;
+
 }

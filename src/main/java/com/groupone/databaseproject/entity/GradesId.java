@@ -23,5 +23,4 @@ public class GradesId {
     @JoinColumn(name = "SEMESTER_ID" , table = "SEMESTER")
     private Semester semester;
 
-
 }
