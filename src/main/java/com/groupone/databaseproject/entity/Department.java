@@ -8,19 +8,32 @@ import java.util.List;
 @Entity
 @Table(name=Department.TABLE_NAME)
 public class Department {
+
     public static final String TABLE_NAME="DEPARTMENT";
 
     @Id
     private String departmentId;
     private String departmentName;
 
-
+    @OneToMany(
+            mappedBy = "primaryDepartment",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private List<Professor> primaryOptedDepartment = new ArrayList<>();
 
-
+    @OneToMany(
+            mappedBy = "secondaryDepartment",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private List<Professor> secondaryOptedDepartment = new ArrayList<>();
 
-
+    @OneToMany(
+            mappedBy = "departmentStud",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private List<Student> studentList = new ArrayList<>();
 
     public String getDepartmentId() {
@@ -39,11 +52,7 @@ public class Department {
         this.departmentName = departmentName;
     }
 
-    @OneToMany(
-            mappedBy = "PRIMARY_DEPARTMENT",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
+
     public List<Professor> getPrimaryOptedDepartment() {
         return primaryOptedDepartment;
     }
@@ -52,11 +61,7 @@ public class Department {
         this.primaryOptedDepartment = primaryOptedDepartment;
     }
 
-    @OneToMany(
-            mappedBy = "SECONDARY_DEPARTMENT",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
+
     public List<Professor> getSecondaryOptedDepartment() {
         return secondaryOptedDepartment;
     }
@@ -65,11 +70,7 @@ public class Department {
         this.secondaryOptedDepartment = secondaryOptedDepartment;
     }
 
-    @OneToMany(
-            mappedBy = "departmentStud",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
+
     public List<Student> getStudentList() {
         return studentList;
     }

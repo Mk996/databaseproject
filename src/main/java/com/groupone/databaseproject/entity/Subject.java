@@ -23,7 +23,7 @@ public class Subject {
         this.credits = credits;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "SUBJECT")
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Grades> gradesList = new ArrayList<>();
 
     public List<Grades> getGradesList() {
@@ -35,11 +35,11 @@ public class Subject {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "SEMESTER_ID" , table = "SEMESETER")
+    @JoinColumn(name = "SEMESTER_ID")
     private Semester semester;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "DEPARTMENT_ID",table = "DEPARTMENT")
+    @JoinColumn(name = "DEPARTMENT_ID")
     private Department department;
 
     public String getSubjectId() {
