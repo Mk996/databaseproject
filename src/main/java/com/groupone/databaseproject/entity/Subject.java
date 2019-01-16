@@ -1,6 +1,8 @@
 package com.groupone.databaseproject.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -11,13 +13,33 @@ public class Subject {
     @Id
     private String subjectId;
     private String subjectName;
+    private int credits;
+
+    public int getCredits() {
+        return credits;
+    }
+
+    public void setCredits(int credits) {
+        this.credits = credits;
+    }
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "SUBJECT")
+    private List<Grades> gradesList = new ArrayList<>();
+
+    public List<Grades> getGradesList() {
+        return gradesList;
+    }
+
+    public void setGradesList(List<Grades> gradesList) {
+        this.gradesList = gradesList;
+    }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "semester_id")
+    @JoinColumn(name = "SEMESTER_ID" , table = "SEMESETER")
     private Semester semester;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "department_id")
+    @JoinColumn(name = "DEPARTMENT_ID",table = "DEPARTMENT")
     private Department department;
 
     public String getSubjectId() {

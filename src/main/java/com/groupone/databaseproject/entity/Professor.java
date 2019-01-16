@@ -15,11 +15,11 @@ public class Professor {
     private String professorName;
 
     @ManyToOne
-    @JoinColumn(name = "DEPARTMENT_ID")
+    @JoinColumn(name = "DEPARTMENT_ID", table = "DEPARTMENT")
     private Department primaryDepartment;
 
     @ManyToOne
-    @JoinColumn(name = "DEPARTMENT_ID")
+    @JoinColumn(name = "DEPARTMENT_ID", table = "DEPARTMENT")
     private Department secondaryDepartment;
 
     private Set<Subject> subjects = new HashSet<>(0);

@@ -1,6 +1,8 @@
 package com.groupone.databaseproject.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = Student.TABLE_NAME)
@@ -10,12 +12,30 @@ public class Student {
     @Id
     private String studentId;
     private String studentName;
-    private String departmentId;
-    private String currentSemesterId;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @Column(name = "department_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "SEMESTER_ID", table = "SEMESTER")
+    private Semester currentSemester;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "DEPARTMENT_ID", table = "DEPARTMENT")
     private Department departmentStud;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "STUDENT")
+    public List<Grades> getGradesList() {
+        return gradesList;
+    }
+
+    public void setGradesList(List<Grades> gradesList) {
+        this.gradesList = gradesList;
+    }
+
+
+    private List<Grades> gradesList = new ArrayList<>();
+
+
+
+
 
     public String getStudentId() {
         return studentId;
@@ -33,19 +53,19 @@ public class Student {
         this.studentName = studentName;
     }
 
-    public String getDepartmentId() {
-        return departmentId;
+    public Semester getCurrentSemester() {
+        return currentSemester;
     }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
+    public void setCurrentSemester(Semester currentSemester) {
+        this.currentSemester = currentSemester;
     }
 
-    public String getCurrentSemesterId() {
-        return currentSemesterId;
+    public Department getDepartmentStud() {
+        return departmentStud;
     }
 
-    public void setCurrentSemesterId(String currentSemesterId) {
-        this.currentSemesterId = currentSemesterId;
+    public void setDepartmentStud(Department departmentStud) {
+        this.departmentStud = departmentStud;
     }
 }
