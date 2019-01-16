@@ -1,5 +1,7 @@
 package com.groupone.databaseproject.repository;
 
+import com.groupone.databaseproject.entity.Grades;
+import com.groupone.databaseproject.entity.GradesId;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,5 +10,5 @@ import org.springframework.stereotype.Repository;
  **/
 
 @Repository
-public interface GradesRepository extends CrudRepository {
+public interface GradesRepository extends CrudRepository<Grades,GradesId> {
 }

@@ -11,13 +11,17 @@ public class Semester {
     public static final String TABLE_NAME = "SEMESTER";
 
 
-
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private List<Subject> subjectList = new ArrayList<>();
 
 
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Grades> gradesList = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "SEMESTER")
+
     public List<Grades> getGradesList() {
         return gradesList;
     }
@@ -26,27 +30,28 @@ public class Semester {
         this.gradesList = gradesList;
     }
 
-    @OneToMany(
-            mappedBy = "SEMESTER",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
+
     public List<Subject> getSubjectList() {
         return subjectList;
     }
 
     public void setSubjectList(List<Subject> subjectList) {
         this.subjectList = subjectList;
-    }
+   }
 
     @Id
-    private String semesterID;
+    @Column(name = "SEMESTER_ID")
+    private String semesterId;
 
-    public String getSemesterID() {
-        return semesterID;
+    public String getSemesterId() {
+        return semesterId;
     }
 
-    public void setSemesterID(String semesterID) {
-        this.semesterID = semesterID;
+    public void setSemesterId(String semesterId) {
+        this.semesterId = semesterId;
+    }
+
+    public Semester get() {
+        return this;
     }
 }
