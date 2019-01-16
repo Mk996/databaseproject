@@ -1,8 +1,9 @@
 package com.groupone.databaseproject.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name=Department.TABLE_NAME)
@@ -12,6 +13,38 @@ public class Department {
     @Id
     private String departmentId;
     private String departmentName;
+
+    /*@OneToMany(
+            mappedBy = "departement",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JsonIgnore
+    private List<Student> studentList;
+
+    @OneToMany(
+            mappedBy = "departement",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JsonIgnore
+    private List<Subject> subjectList;
+
+    @OneToMany(
+            mappedBy = "primaryDepartement",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JsonIgnore
+    private List<Professor> primaryProfessorList;
+
+    @OneToMany(
+            mappedBy = "secondaryDepartement",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JsonIgnore
+    private List<Professor> secondaryProfessorList;*/
 
     public String getDepartmentId() {
         return departmentId;
