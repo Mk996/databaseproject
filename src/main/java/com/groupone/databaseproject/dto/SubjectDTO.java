@@ -6,6 +6,15 @@ public class SubjectDTO {
     private String semesterId;
     private String departmentId;
     private String subjectName;
+    private int credits;
+
+    public int getCredits() {
+        return credits;
+    }
+
+    public void setCredits(int credits) {
+        this.credits = credits;
+    }
 
     public String getSubjectId() {
         return subjectId;
