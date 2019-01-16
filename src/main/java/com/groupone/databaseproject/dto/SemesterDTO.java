@@ -2,13 +2,13 @@ package com.groupone.databaseproject.dto;
 
 
 public class SemesterDTO {
-    private String semesterID;
+    private String semesterId;
 
-    public String getSemesterID() {
-        return semesterID;
+    public String getSemesterId() {
+        return semesterId;
     }
 
-    public void setSemesterID(String semesterID) {
-        this.semesterID = semesterID;
+    public void setSemesterId(String semesterId) {
+        this.semesterId = semesterId;
     }
 }

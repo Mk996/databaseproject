@@ -14,14 +14,14 @@ public class Student {
     private String studentName;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "SEMESTER_ID", table = "SEMESTER")
+    @JoinColumn(name = "CURRENT_SEMESTER_ID")
     private Semester currentSemester;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "DEPARTMENT_ID", table = "DEPARTMENT")
+    @JoinColumn(name = "DEPARTMENT_ID")
     private Department departmentStud;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "STUDENT")
+
     public List<Grades> getGradesList() {
         return gradesList;
     }
@@ -30,11 +30,8 @@ public class Student {
         this.gradesList = gradesList;
     }
 
-
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Grades> gradesList = new ArrayList<>();
-
-
-
 
 
     public String getStudentId() {

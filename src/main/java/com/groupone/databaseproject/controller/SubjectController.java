@@ -30,14 +30,14 @@ public class SubjectController {
     private SubjectDTO add(@RequestBody SubjectDTO subject) {
         Subject newSubject = new Subject();
         BeanUtils.copyProperties(subject, newSubject);
-        Semester semester = semesterServices.select(subject.getSemesterId());
+        Semester semester = semesterServices.read(subject.getSemesterId());
         Department department = departmentServices.select(subject.getDepartmentId());
         newSubject.setSemester(semester);
         newSubject.setDepartment(department);
         Subject subCreated = subjectServices.add(newSubject);
         SubjectDTO newSubjectDto = new SubjectDTO();
         BeanUtils.copyProperties(subCreated, newSubjectDto);
-        newSubjectDto.setSemesterId(subCreated.getSemester().getSemesterID());
+        newSubjectDto.setSemesterId(subCreated.getSemester().getSemesterId());
         newSubjectDto.setDepartmentId(subCreated.getDepartment().getDepartmentId());
         return newSubjectDto;
     }

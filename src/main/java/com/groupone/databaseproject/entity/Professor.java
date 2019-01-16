@@ -1,7 +1,9 @@
 package com.groupone.databaseproject.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -15,25 +17,30 @@ public class Professor {
     private String professorName;
 
     @ManyToOne
-    @JoinColumn(name = "DEPARTMENT_ID", table = "DEPARTMENT")
+    @NotNull
+    @JoinColumn(name = "PRIMARY_DEPARTMENT_ID")
     private Department primaryDepartment;
 
     @ManyToOne
-    @JoinColumn(name = "DEPARTMENT_ID", table = "DEPARTMENT")
+    @JoinColumn(name = "SECONDARY_DEPARTMENT_ID")
     private Department secondaryDepartment;
 
-    private Set<Subject> subjects = new HashSet<>(0);
-
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "SUBJECT_TUTOR", joinColumns = {@JoinColumn(name = "PROFESSOR_ID")}, inverseJoinColumns = {@JoinColumn(name = "SUBJECT_ID")})
-    public Set<Subject> getSubjects() {
-        return subjects;
-    }
 
     public void setSubjects(Set<Subject> subjects) {
         this.subjects = subjects;
     }
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "SUBJECT_TUTOR", joinColumns = {@JoinColumn(name = "PROFESSOR_ID" )},
+            inverseJoinColumns = {@JoinColumn(name = "SUBJECT_ID" )})
+    private Set<Subject> subjects;
+
+
+
+    public Set<Subject> getSubjects() {
+        return subjects;
+    }
+
 
     public String getProfessorId() {
         return professorId;
