@@ -1,9 +1,9 @@
 package com.groupone.databaseproject.entity;
 
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
 
 @Entity
 @Table(name=Department.TABLE_NAME)

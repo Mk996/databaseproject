@@ -1,15 +1,15 @@
 package com.groupone.databaseproject.dto;
 
 public class DepartmentDTO {
-    private String deparmentId;
+    private String departmentId;
     private String departmentName;
 
-    public String getDeparmentId() {
-        return deparmentId;
+    public String getDepartmentId() {
+        return departmentId;
     }
 
-    public void setDeparmentId(String deparmentId) {
-        this.deparmentId = deparmentId;
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
     }
 
     public String getDepartmentName() {
