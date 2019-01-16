@@ -24,8 +24,6 @@ public class Department {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-
-
     public String getDepartmentId() {
         return departmentId;
     }
@@ -41,6 +39,5 @@ public class Department {
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
     }
-
 
 }
