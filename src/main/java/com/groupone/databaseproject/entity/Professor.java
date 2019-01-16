@@ -1,8 +1,8 @@
 package com.groupone.databaseproject.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = Professor.TABLE_NAME)
@@ -13,8 +13,27 @@ public class Professor {
     @Id
     private String professorId;
     private String professorName;
-    private String primaryDepartmentId;
-    private String secondaryDepartmentId;
+
+    @ManyToOne
+    @JoinColumn(name = "DEPARTMENT_ID")
+    private Department primaryDepartment;
+
+    @ManyToOne
+    @JoinColumn(name = "DEPARTMENT_ID")
+    private Department secondaryDepartment;
+
+    private Set<Subject> subjects = new HashSet<>(0);
+
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "SUBJECT_TUTOR", joinColumns = {@JoinColumn(name = "PROFESSOR_ID")}, inverseJoinColumns = {@JoinColumn(name = "SUBJECT_ID")})
+    public Set<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(Set<Subject> subjects) {
+        this.subjects = subjects;
+    }
 
     public String getProfessorId() {
         return professorId;
@@ -32,19 +51,19 @@ public class Professor {
         this.professorName = professorName;
     }
 
-    public String getPrimaryDepartmentId() {
-        return primaryDepartmentId;
+    public Department getPrimaryDepartment() {
+        return primaryDepartment;
     }
 
-    public void setPrimaryDepartmentId(String primaryDepartmentId) {
-        this.primaryDepartmentId = primaryDepartmentId;
+    public void setPrimaryDepartment(Department primaryDepartment) {
+        this.primaryDepartment = primaryDepartment;
     }
 
-    public String getSecondaryDepartmentId() {
-        return secondaryDepartmentId;
+    public Department getSecondaryDepartment() {
+        return secondaryDepartment;
     }
 
-    public void setSecondaryDepartmentId(String secondaryDepartmentId) {
-        this.secondaryDepartmentId = secondaryDepartmentId;
+    public void setSecondaryDepartment(Department secondaryDepartment) {
+        this.secondaryDepartment = secondaryDepartment;
     }
 }

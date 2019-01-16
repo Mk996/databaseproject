@@ -1,6 +1,8 @@
 package com.groupone.databaseproject.dto;
 
-import java.util.List;
+import com.groupone.databaseproject.entity.Subject;
+
+import java.util.Set;
 
 /**
  * Created by maharshigor on 15/01/19
@@ -12,7 +14,7 @@ public class ProfessorDTO {
     private String primaryDepartmentId;
     private String secondaryDepartmentId;
 
-    private List<String> subjectList;
+    private Set<Subject> subjectList;
 
     public String getProfessorId() {
         return professorId;
@@ -46,11 +48,11 @@ public class ProfessorDTO {
         this.secondaryDepartmentId = secondaryDepartmentId;
     }
 
-    public List<String> getSubjectList() {
+    public Set<Subject> getSubjectList() {
         return subjectList;
     }
 
-    public void setSubjectList(List<String> subjectList) {
+    public void setSubjectList(Set<Subject> subjectList) {
         this.subjectList = subjectList;
     }
 }

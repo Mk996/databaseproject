@@ -1,8 +1,7 @@
 package com.groupone.databaseproject.entity;
 
-
-
 import javax.persistence.*;
+
 
 @Entity
 @Table(name = Subject.TABLE_NAME)
@@ -11,15 +10,15 @@ public class Subject {
 
     @Id
     private String subjectId;
-    private String semesterId;
-    private String departmentId;
     private String subjectName;
 
-    /*@ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @Column(name = "semester_id")
+    private Semester semester;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "department_id")*/
+    @Column(name = "department_id")
+    private Department department;
 
     public String getSubjectId() {
         return subjectId;
@@ -35,5 +34,21 @@ public class Subject {
 
     public void setSubjectName(String subjectName) {
         this.subjectName = subjectName;
+    }
+
+    public Semester getSemester() {
+        return semester;
+    }
+
+    public void setSemester(Semester semester) {
+        this.semester = semester;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }
