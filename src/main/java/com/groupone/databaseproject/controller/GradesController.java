@@ -71,4 +71,15 @@ public class GradesController {
     public void delete(@RequestParam GradesId gradesId){
         gradesServices.delete(gradesId);
     }
+
+    @RequestMapping(value = "/getcgpa" , method = RequestMethod.GET)
+    public double getCgpa(@RequestParam String studentId){
+        return gradesServices.getCgpa(studentId);
+    }
+
+    @RequestMapping(value = "/getgpa" , method = RequestMethod.GET)
+    public double getGpa(@RequestParam String studentId){
+
+        return gradesServices.getGpa(studentId , studentServices.select(studentId).getCurrentSemester().getSemesterId());
+    }
 }

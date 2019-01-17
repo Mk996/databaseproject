@@ -13,5 +13,8 @@ public interface GradesServices {
     Grades update(Grades grades);
     void delete(GradesId gradesId);
 
+    double getCgpa(String studentId);
+    double getGpa(String studentId, String semesterId);
+
 
 }

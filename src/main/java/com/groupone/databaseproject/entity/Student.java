@@ -14,7 +14,7 @@ public class Student {
     private String studentName;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "CURRENT_SEMESTER_ID")
+    @JoinColumn(name = "SEMESTER_ID")
     private Semester currentSemester;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -65,4 +65,6 @@ public class Student {
     public void setDepartmentStud(Department departmentStud) {
         this.departmentStud = departmentStud;
     }
+
+
 }
