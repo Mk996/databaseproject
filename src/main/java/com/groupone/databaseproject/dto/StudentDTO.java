@@ -5,6 +5,15 @@ public class StudentDTO {
     private String studentName;
     private String departmentId;
     private String currentSemesterId;
+    private String gradesSubjectWise;
+
+    public String getGradesSubjectWise() {
+        return gradesSubjectWise;
+    }
+
+    public void setGradesSubjectWise(String gradesSubjectWise) {
+        this.gradesSubjectWise = gradesSubjectWise;
+    }
 
     public String getStudentId() {
         return studentId;

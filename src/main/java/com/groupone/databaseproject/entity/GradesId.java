@@ -20,6 +20,30 @@ public class GradesId implements Serializable {
     @JoinColumn(name = "SUBJECT_ID")
     private Subject subject;
 
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
+
+    public Semester getSemester() {
+        return semester;
+    }
+
+    public void setSemester(Semester semester) {
+        this.semester = semester;
+    }
+
     @ManyToOne
     @JoinColumn(name = "SEMESTER_ID")
     private Semester semester;
